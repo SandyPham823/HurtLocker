@@ -1,7 +1,7 @@
 import org.apache.commons.io.IOUtils;
 import java.io.IOException;
 
-public class Main {
+public class Main extends JerkSONParser {
 
     public String readRawDataToString() throws Exception{
         ClassLoader classLoader = getClass().getClassLoader();
@@ -11,6 +11,8 @@ public class Main {
 
     public static void main(String[] args) throws Exception{
         String output = (new Main()).readRawDataToString();
+        output = new JerkSONParser().changeSeparator(output);
+
         System.out.println(output);
 
     }
